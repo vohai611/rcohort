@@ -9,8 +9,9 @@ cohort(
   id_col,
   time_col,
   time_unit = c("week", "month", "quarter", "year"),
-  percent_form = FALSE,
-  relative_time = FALSE
+  percent_form = TRUE,
+  relative_time = TRUE,
+  all_group = FALSE
 )
 }
 \arguments{
@@ -25,6 +26,9 @@ cohort(
 \item{percent_form}{Should return table contain percentage value or absolute value}
 
 \item{relative_time}{Should return column is relative time or absolute period}
+
+\item{all_group}{Should result include group of all entities. This params
+must only set to TRUE when both percent_form and relative_time is TRUE}
 }
 \value{
 a data frame with class cohort_df
