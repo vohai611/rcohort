@@ -63,3 +63,4 @@ cohort = function(data,
   rs[, cohort := forcats::fct_inorder(cohort)][]
 }
 
+
