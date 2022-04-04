@@ -25,13 +25,24 @@ cake_chart = function(df){
     ggplot2::labs(title = "Retention curve")+
     ggplot2::theme_light()
 }
+#' Auto plot cohort data frame
+#'
+#' This auto plot function use ggplot2 as back end
+#' @param data dataframe with class cohort_df
+#' @param type type of plot
+#' @export
+
+auto_plot = function(data, type){
+  UseMethod("cohort_df")
+}
 
 #' @export
-plot.cohort_df = function(x,y, ...){
-  arg = list(...)
-  type = arg$type
+auto_plot.cohort_df = function(data, type){
+  # old plot() method
+  #arg = list(...)
+  #type = arg$type
   type = match.arg(type, choices = c("tile", "line", "cake"))
-  melt_cohort = data.table::melt(x,id.vars = "cohort")
+  melt_cohort = data.table::melt(data,id.vars = "cohort")
   #melt_cohort[,variable := as.Date(variable)]
 
   switch (type,
