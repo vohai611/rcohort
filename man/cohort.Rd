@@ -27,7 +27,7 @@ cohort(
 
 \item{relative_time}{Should return column is relative time or absolute period}
 
-\item{all_group}{Should result include group of all entities. This params
+\item{all_group}{Should result include group of all entities. This argument
 must only set to TRUE when both percent_form and relative_time is TRUE}
 }
 \value{
