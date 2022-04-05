@@ -12,7 +12,7 @@
 #' @param all_group Should result include group of all entities. This argument
 #' must only set to TRUE when both percent_form and relative_time is TRUE
 #' @importFrom data.table :=
-#' @importFrom data.table month
+#' @importFrom data.table month week quarter year
 #' @return a data frame with class cohort_df
 #' @export
 #'

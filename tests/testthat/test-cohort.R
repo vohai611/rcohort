@@ -44,3 +44,13 @@ test_that("Basic form check", {
   expect_snapshot(as.list(df_cohort2))
 })
 
+
+test_that("Test accuracy",{
+  dfx = data.frame(
+    x1 = c(1,1,1,2,2,2,3,3),
+    x2 = as.Date(c("2020-01-01", "2020-02-01", "2020-2-01", "2020-01-01", "2020-03-01", "2020-03-01", "2020-03-01", "2020-03-01"))
+  )
+  df_cohort = cohort_count(dfx, x1,x2, "month")
+  expect_snapshot(as.list(df_cohort))
+
+})

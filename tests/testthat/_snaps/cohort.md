@@ -96,3 +96,22 @@
       [1] 30 50 NA NA NA
       
 
+# Test accuracy
+
+    Code
+      as.list(df_cohort)
+    Output
+      $cohort
+      [1] 2020-1 2020-3
+      Levels: 2020-1 2020-3
+      
+      $month_1
+      [1] 100 100
+      
+      $month_2
+      [1] 50 NA
+      
+      $month_3
+      [1] 50 NA
+      
+
