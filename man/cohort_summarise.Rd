@@ -6,9 +6,9 @@
 \usage{
 cohort_summarise(
   data,
-  id_col,
-  time_col,
-  summarise_col,
+  .id_col,
+  .time_col,
+  .summarise_col,
   .fn = c("mean"),
   ...,
   time_unit = c("week", "month", "quarter", "year"),
@@ -20,11 +20,11 @@ cohort_summarise(
 \arguments{
 \item{data}{Input data}
 
-\item{id_col}{Variable to identify entities (maybe customer ID)}
+\item{.id_col}{Variable to identify entities (maybe customer ID)}
 
-\item{time_col}{Time with respect to id_col}
+\item{.time_col}{Time with respect to id_col}
 
-\item{summarise_col}{Variable to perform summarise on}
+\item{.summarise_col}{Variable to perform summarise on}
 
 \item{.fn}{Function to perform summarise, in character form.default is "\code{sum}". This
 function should return length 1 numeric value,}

@@ -6,8 +6,8 @@
 \usage{
 cohort_count(
   data,
-  id_col,
-  time_col,
+  .id_col,
+  .time_col,
   time_unit = c("week", "month", "quarter", "year"),
   percent_form = TRUE,
   relative_time = TRUE,
@@ -17,9 +17,9 @@ cohort_count(
 \arguments{
 \item{data}{Input data}
 
-\item{id_col}{Variable to identify entities (maybe customer ID)}
+\item{.id_col}{Variable to identify entities (maybe customer ID)}
 
-\item{time_col}{Time with respect to id_col}
+\item{.time_col}{Time with respect to id_col}
 
 \item{time_unit}{Time unit to group to cohort}
 

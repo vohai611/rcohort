@@ -1,3 +1,5 @@
 ^rcohort\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^README\.Rmd$
+^example-data$

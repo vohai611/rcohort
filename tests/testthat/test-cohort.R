@@ -39,7 +39,8 @@ test_that("Basic form check", {
   df_cohort = cohort_count(df, x1, x2, "month", relative_time = FALSE)
   df_cohort2 = cohort_count(df, x1, x2, "month", all_group = TRUE)
 
-  expect_equal(nrow(df_cohort), 4)
+  expect_match(names(df_cohort2)[-1],"(week|month|year)_[0-9]+")
+
   expect_snapshot(as.list(df_cohort))
   expect_snapshot(as.list(df_cohort2))
 })

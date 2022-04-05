@@ -4,8 +4,8 @@
 #' This cohort analysis is suitable to measure customer retention. To summarize for example revenue of each cohort, use `cohort_summarise()`
 #'
 #' @param data Input data
-#' @param id_col Variable to identify entities (maybe customer ID)
-#' @param time_col Time with respect to id_col
+#' @param .id_col Variable to identify entities (maybe customer ID)
+#' @param .time_col Time with respect to id_col
 #' @param time_unit Time unit to group to cohort
 #' @param percent_form  Should return table contain percentage value or absolute value
 #' @param relative_time Should return column is relative time or absolute period
@@ -18,8 +18,8 @@
 #'
 
 cohort_count = function(data,
-                  id_col,
-                  time_col,
+                  .id_col,
+                  .time_col,
                   time_unit = c("week", "month", "quarter", "year"),
                   percent_form = TRUE,
                   relative_time = TRUE,
@@ -34,8 +34,8 @@ cohort_count = function(data,
   }
 
   # process input
-  id_col = deparse(substitute(id_col))
-  time_col = deparse(substitute(time_col))
+  id_col = deparse(substitute(.id_col))
+  time_col = deparse(substitute(.time_col))
 
   env = list(id_col = id_col, time_col = time_col)
 
@@ -94,15 +94,15 @@ cohort_count = function(data,
 #'
 #' cohort_summarise() perform cohort analysis by summarizing variable. For example, sum() of revenue of each cohort.
 #' @inheritParams cohort_count
-#' @param summarise_col Variable to perform summarise on
+#' @param .summarise_col Variable to perform summarise on
 #' @param .fn Function to perform summarise, in character form.default is "`sum`". This
 #' function should return length 1 numeric value,
 #' @param ... Additional argument pass to `.fn`
 #' @export
 cohort_summarise = function(data,
-                  id_col,
-                  time_col,
-                  summarise_col,
+                  .id_col,
+                  .time_col,
+                  .summarise_col,
                   .fn = c("mean"),
                   ...,
                   time_unit = c("week", "month", "quarter", "year"),
@@ -119,9 +119,9 @@ cohort_summarise = function(data,
   }
 
   # process input
-  id_col = deparse(substitute(id_col))
-  time_col = deparse(substitute(time_col))
-  summarise_col = deparse(substitute(summarise_col))
+  id_col = deparse(substitute(.id_col))
+  time_col = deparse(substitute(.time_col))
+  summarise_col = deparse(substitute(.summarise_col))
 
   env = list(id_col = id_col, time_col = time_col, summarise_col = summarise_col)
 
