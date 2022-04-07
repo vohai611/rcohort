@@ -5,7 +5,7 @@
 #'
 #' @param data Input data
 #' @param .id_col Variable to identify entities (maybe customer ID)
-#' @param .time_col Time with respect to id_col
+#' @param .time_col Time correspond to id_col. Must be in date or date-time format
 #' @param time_unit Time unit to group to cohort
 #' @param percent_form  Should return table contain percentage value or absolute value
 #' @param relative_time Should return column is relative time or absolute period

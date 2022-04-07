@@ -19,7 +19,7 @@ cohort_count(
 
 \item{.id_col}{Variable to identify entities (maybe customer ID)}
 
-\item{.time_col}{Time with respect to id_col}
+\item{.time_col}{Time correspond to id_col. Must be in date or date-time format}
 
 \item{time_unit}{Time unit to group to cohort}
 
