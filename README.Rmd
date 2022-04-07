@@ -22,7 +22,7 @@ The goal of `rcohort` is to perform cohort analysis with R. This package build o
 
 ## Installation
 
-You can install the development version of `rcohort` from [GitHub](https://github.com/) with:
+You can install the development version of `rcohort` from [GitHub](https://github.com/vohai611/rcohort) with:
 
 ``` r
 # install.packages("devtools")
@@ -31,13 +31,13 @@ devtools::install_github("vohai611/rcohort")
 
 ## Example
 
-This is a basic example which shows you how to execute cohort analysis  with `rcohort`
+This is a basic example which shows you how to execute cohort analysis with `rcohort`
 
 ```{r}
 df = readRDS("example-data/online-retail.rds")
 ```
 
-This is a typical dataset of online retailer ([Source](https://www.kaggle.com/code/mahmoudelfahl/cohort-analysis-customer-segmentation-with-rfm/data))
+This is a typical dataset of an online retailer ([Source](https://archive.ics.uci.edu/ml/datasets/Online+Retail#))
 
 ```{r}
 head(df)
@@ -48,20 +48,23 @@ head(df)
 ```{r example}
 library(rcohort)
 
-df |>
+df1 = df |>
   cohort_count(.id_col = CustomerID,
                .time_col = InvoiceDate,
-               time_unit = "month")
+               time_unit = "month",
+               percent_form = TRUE)
+head(df1, 5)
 ```
 
 To include group of all customer, use `all_group = TRUE`
 
 ```{r}
-df |>
+df2 = df |>
   cohort_count(.id_col = CustomerID,
                .time_col = InvoiceDate,
                time_unit = "month",
                all_group = TRUE)
+head(df2, 5)
 ```
 
 Beside counting the appearance of customers, you can summarise cohort performance over time. For example, we can observe the change of the revenue over time.
@@ -74,7 +77,8 @@ cohort_df = df |>
                    .time_col = InvoiceDate,
                   .summarise_col = Revenue,.fn = "sum", time_unit = "month",
                   percent_form = TRUE) 
-cohort_df
+
+head(cohort_df,5)
 ```
 
 We can also quick visualize cohort data by calling `auto_plot`
