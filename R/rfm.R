@@ -10,29 +10,41 @@ cut_tile = function(x, n){
 #'
 #' @inheritParams cohort_count
 #' @param .m_col Column to compute monetary score, default to not compute
-#' @cur_time reference time to compute Recently metrics
+#' @param cur_time reference time to compute Recently metrics
+#' @param scale maximum score of each metrics
 #' @export
 
-rfm_score = function(data, .id_col, .time_col, .m_col = NULL, cur_time = Sys.time()){
+rfm_score = function(data,
+                     .id_col,
+                     .time_col,
+                     .m_col = NULL,
+                     cur_time = Sys.time(),
+                     scale = 4) {
 
   df = as.data.table(data)
   # process input
   id_col = deparse(substitute(.id_col))
   time_col = deparse(substitute(.time_col))
   m_col = deparse(substitute(.m_col))
-  env = list(id_col = id_col, time_col = time_col, m_col = m_col)
+  env = list(id_col = id_col,
+             time_col = time_col,
+             m_col = m_col)
 
   df1 = df[, .(
-    r = as.numeric(difftime(cur_time, max(time_col))),
+    r = as.numeric(difftime(max(time_col), cur_time)),
     f = uniqueN(time_col),
-    m = sum(m_col, na.rm =TRUE)), by = id_col, env = env]
-  df2 = df1[, lapply(.SD, cut_tile, 4), .SDcols = c("r", "f", "m")]
+    m = sum(m_col, na.rm = TRUE)
+  ), by = id_col, env = env]
 
-  df2 = cbind(df1[[id_col]], df2)
-  names(df2)[1] = id_col
+  df2 = df1[, lapply(.SD, cut_tile, scale), .SDcols = c("r", "f", "m")]
+  df1$r = abs(df1$r)
+  names(df2) = paste0(c("r", "f", "m"), "_score")
 
-  rs = df2[, .(id_col, r, f, m, rfm_score = (r + f + m)), env= env]
-  class(rs)  = c("rfm_df", class(rf))
+  rs = cbind(df1, df2)
+  rs[, rfm_score := r_score + f_score + m_score]
+  rs = rs[order(-rfm_score),]
+
+  class(rs)  = c("rfm_df", class(rs))
   return(rs)
 
 }

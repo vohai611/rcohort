@@ -4,7 +4,14 @@
 \alias{rfm_score}
 \title{Compute RFM metrics}
 \usage{
-rfm_score(data, .id_col, .time_col, .m_col = NULL, cur_time = Sys.time())
+rfm_score(
+  data,
+  .id_col,
+  .time_col,
+  .m_col = NULL,
+  cur_time = Sys.time(),
+  scale = 4
+)
 }
 \arguments{
 \item{data}{Input data}
@@ -14,7 +21,11 @@ rfm_score(data, .id_col, .time_col, .m_col = NULL, cur_time = Sys.time())
 \item{.time_col}{Time correspond to id_col. Must be in date or date-time format}
 
 \item{.m_col}{Column to compute monetary score, default to not compute}
+
+\item{cur_time}{reference time to compute Recently metrics}
+
+\item{scale}{maximum score of each metrics}
 }
 \description{
-Recently, Frequentcy, Monetary score
+Recently, Frequency, Monetary score
 }

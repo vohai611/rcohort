@@ -11,11 +11,15 @@ build on top of `data.table` hence it should bring good speed!
 
 ## Installation
 
-You can install the development version of `rcohort` from
+`rcohort` use `data.table` version 1.14.3, which is not available on
+CRAN yet. Therefore, you need to update `data.table` to the development
+version first to be able to use `rcohort`. You can install the
+development version of `rcohort` from
 [GitHub](https://github.com/vohai611/rcohort) with:
 
 ``` r
 # install.packages("devtools")
+data.table::update.dev.pkg()
 devtools::install_github("vohai611/rcohort")
 ```
 
