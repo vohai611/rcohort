@@ -24,5 +24,7 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
           extra-packages: rcmdcheck
+      - name: update data.table
+        run: Rscript -e "data.table::update.dev.pkg()"
 
       - uses: r-lib/actions/check-r-package@v1
