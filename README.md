@@ -4,6 +4,8 @@
 # rcohort
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/vohai611/rcohort/workflows/R-CMD-check/badge.svg)](https://github.com/vohai611/rcohort/actions)
 <!-- badges: end -->
 
 The goal of `rcohort` is to perform cohort analysis with R. This package
