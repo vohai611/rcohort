@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/vohai611/rcohort/workflows/R-CMD-check/badge.svg)](https://github.com/vohai611/rcohort/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/vohai611/rcohort/branch/master/graph/badge.svg)](https://app.codecov.io/gh/vohai611/rcohort?branch=master)
 <!-- badges: end -->
 
 The goal of `rcohort` is to perform cohort analysis with R. This package
